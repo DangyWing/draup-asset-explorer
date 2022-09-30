@@ -36,7 +36,7 @@ const usePointDisplay = ({ data, selectedPoint, targetDate }) => {
           .fill()
           .flatMap((_, i) => tempColor.set((data[i].visible = true)).toArray([3, 3, 3]))
       ),
-    []
+    [data, numPoints]
   );
 
   React.useEffect(() => {
@@ -69,7 +69,7 @@ const usePointColors = ({ data, selectedPoint }) => {
           .fill()
           .flatMap((_, i) => tempColor.set(data[i].color).toArray([3, 3, 3]))
       ),
-    []
+    [data, numPoints]
   );
 
   React.useEffect(() => {
@@ -84,7 +84,7 @@ const usePointColors = ({ data, selectedPoint }) => {
   return { colorAttrib, colorArray };
 };
 
-const useMousePointInteraction = ({ data, selectedPoint, onSelectPoint }) => {
+const useMousePointInteraction = ({ data, onSelectPoint }) => {
   // track mousedown position to skip click handlers on drags
   const mouseDownRef = React.useRef([0, 0]);
   const handlePointerDown = (e) => {

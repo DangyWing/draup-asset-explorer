@@ -14,12 +14,12 @@ export default function App(tableData: ExplorerData) {
   const [layout, setLayout] = useState("grid");
   const [selectedPoint, setSelectedPoint] = useState({
     projectname: "",
-    tokenid: null,
-    mint_price_eth: null,
-    mint_price_usd: null,
-    mint_tx_fee: null,
-    transferfromtimestamp: null,
-    transfertotimestamp: null,
+    tokenid: "",
+    mint_price_eth: "",
+    mint_price_usd: "",
+    mint_tx_fee: "",
+    transferfromtimestamp: "",
+    transfertotimestamp: "",
   });
   const [selectedDate, setSelectedDate] = useState(1612595597 / 84000);
   const [minTimestamp, setMinTimestamp] = useState(1632460349);
@@ -172,7 +172,7 @@ export default function App(tableData: ExplorerData) {
               <p>
                 entered wallet:{" "}
                 <strong>
-                  {DateTime.fromSQL(selectedPoint.transfertotimestamp)
+                  {DateTime.fromSQL(selectedPoint?.transfertotimestamp)
                     .setLocale(userLocale)
                     .setZone(userTimezone)
                     .toLocaleString()}

@@ -6,38 +6,19 @@ import { useAccount, useProvider } from "wagmi";
 import { ethers } from "ethers";
 import { PaperAirplaneIcon } from "@heroicons/react/24/outline";
 import TimelineTable from "../components/timelineTable/timelineTable";
-import { QueryFlipside } from "../utils/FlipsideQuery";
+import { QueryFlipside } from "../utils/flipsideQuery";
 import { nftTransfersQuery } from "../sql/getTransfers";
 import Image from "next/image";
 import Explorer from "../components/walletExplorer/explorer";
 import { useAtom } from "jotai";
 import { showExplorerAtom } from "../atoms";
 
-type ExplorerData = {
-  data: NFT[];
-};
-
-type NFT = {
-  fromaddress: string;
-  fromcontractaddress: string;
-  projectname: string;
-  tokenid: string;
-  transferfromtimestamp: string;
-  transferfromtxhash: string;
-  transferfromtype: string;
-  transferinsourceaddress: string;
-  transferouttargetaddress: string;
-  transfertotimestamp: string;
-  transfertotxhash: string;
-  transfertotype: string;
-};
-
 const Home: NextPage = () => {
   const [currentAccount, setCurrentAccount] = useState("");
   const { address } = useAccount();
   const [ethAddressError, setEthAddressError] = useState("");
   const provider = useProvider();
-  const [data, setData] = useState<ExplorerData>();
+  const [data, setData] = useState<any>();
   const [isLoading, setIsLoading] = useState(false);
   const [searchEthAddress, setSearchEthAddress] = useState("");
   const [showExplore, setShowExplore] = useAtom(showExplorerAtom);
@@ -97,10 +78,6 @@ const Home: NextPage = () => {
       setSearchEthAddress(ethAddress);
     }
   }
-
-  // const mainEthAddress = "0x26c9Fc612b005781127246BBc5dC39f823E3106E";
-  // fewer NFTs
-  // const mainEthAddress = "0xbd0442dc60969f68EE7FA90274FD2Bcc128aBbD7";
 
   return (
     <>

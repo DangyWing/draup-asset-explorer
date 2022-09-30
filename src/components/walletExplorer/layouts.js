@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useSpring, animated } from "@react-spring/three";
+import { useSpring } from "@react-spring/three";
 
 function gridLayout(data) {
   const numPoints = data.length;
