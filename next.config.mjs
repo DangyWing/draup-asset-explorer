@@ -16,6 +16,14 @@ export default defineNextConfig({
   reactStrictMode: true,
   swcMinify: true,
   // Next.js i18n docs: https://nextjs.org/docs/advanced-features/i18n-routing
+  async rewrites() {
+    return [
+      {
+        source: "/api/:path*",
+        destination: "https://node-api.flipsidecrypto.com/queries*",
+      },
+    ];
+  },
   async headers() {
     return [
       {
