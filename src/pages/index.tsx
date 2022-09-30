@@ -6,7 +6,7 @@ import { useAccount, useProvider } from "wagmi";
 import { ethers } from "ethers";
 import { PaperAirplaneIcon } from "@heroicons/react/24/outline";
 import TimelineTable from "../components/timelineTable/timelineTable";
-import { QueryFlipside } from "../utils/flipsideQuery";
+import { QueryFlipside } from "../utils/queryFlipside";
 import { nftTransfersQuery } from "../sql/getTransfers";
 import Image from "next/image";
 import Explorer from "../components/walletExplorer/explorer";
