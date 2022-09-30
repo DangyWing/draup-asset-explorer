@@ -8,7 +8,7 @@ export const QueryFlipside = async (sql: string) => {
   const query: Query = {
     sql: sql,
     ttlMinutes: 10,
-    timeoutMinutes: 2,
+    timeoutMinutes: 5,
     pageSize: 10000,
   };
 

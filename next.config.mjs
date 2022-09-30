@@ -20,7 +20,7 @@ export default defineNextConfig({
     return [
       {
         source: "/api/:path*",
-        destination: "https://node-api.flipsidecrypto.com/queries*",
+        destination: "https://node-api.flipsidecrypto.com/:path*",
       },
     ];
   },
@@ -36,7 +36,7 @@ export default defineNextConfig({
           {
             key: "Access-Control-Allow-Headers",
             value:
-              "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version",
+              "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, X-Auth-Token, Origin, Authorization",
           },
         ],
       },
