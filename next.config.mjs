@@ -20,7 +20,7 @@ export default defineNextConfig({
     return [
       {
         source: "/api/:path*",
-        destination: "https://node-api.flipsidecrypto.com/:path*",
+        destination: "https://node-api.flipsidecrypto.com:path*",
       },
     ];
   },
