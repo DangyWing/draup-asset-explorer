@@ -1,50 +1,32 @@
-# Create T3 App
+# DRAUP Asset Explorer
 
-This is an app bootstrapped according to the [init.tips](https://init.tips) stack, also known as the T3-Stack.
+Hosted example: [DRAUP Asset Explorer](https://draup-asset-explorer.vercel.app/)
 
-## Why are there `.js` files in here?
+### How do I deploy this?
+You can clone the repo by pasting this in your terminal ``git clone https://github.com/DangyWing/draup-asset-explorer.git`` then press Enter.
 
-As per [T3-Axiom #3](https://github.com/t3-oss/create-t3-app/tree/next#3-typesafety-isnt-optional), we take typesafety as a first class citizen. Unfortunately, not all frameworks and plugins support TypeScript which means some of the configuration files have to be `.js` files.
+To run this locally ensure you are in the folder where you cloned the repo and run ``npm run dev`` then open a browser to http://localhost:3000.
 
-We try to emphasize that these files are javascript for a reason, by explicitly declaring its type (`cjs` or `mjs`) depending on what's supported by the library it is used by. Also, all the `js` files in this project are still typechecked using a `@ts-check` comment at the top.
+### Dependencies
 
-## What's next? How do I make an app with this?
+You will need a shroom sdk API key which you can get by buying one of the [flipside](https://flipsidecrypto.xyz/) NFTs [here](https://opensea.io/collection/flipside-shroomdk).
 
-We try to keep this project as simple as possible, so you can start with the most basic configuration and then move on to more advanced configuration.
+Once you have an api key, create an empty file name .env in your project's root directory and put api key key in your .env file assigned to ``NEXT_PUBLIC_SCHROOMDK_API_KEY``.
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+Your .env should look like this:
 
-- [Next-Auth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [TailwindCSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io) (using @next version? [see v10 docs here](https://trpc.io/docs/v10/))
+``
+NEXT_PUBLIC_SHROOMDK_API_KEY=012ab34cd-5ef6-78gh-910ij-11klm1213
+``
 
-Also checkout these awesome tutorials on `create-t3-app`.
+Next, you'll have to share your app's hostname with shroomdk as each API key corresponds to hostnames. Yes, even localhost:3000 :). To add your hostname(s) go [here](https://sdk.flipsidecrypto.xyz/shroomdk/apikeys).
 
-- [Build a Blog With the T3 Stack - tRPC, TypeScript, Next.js, Prisma & Zod](https://www.youtube.com/watch?v=syEWlxVFUrY)
-- [Build a Live Chat Application with the T3 Stack - TypeScript, Tailwind, tRPC](https://www.youtube.com/watch?v=dXRRY37MPuk)
-- [Build a full stack app with create-t3-app](https://www.nexxel.dev/blog/ct3a-guestbook)
-- [A first look at create-t3-app](https://dev.to/ajcwebdev/a-first-look-at-create-t3-app-1i8f)
+After that you should be good to go!
 
-## How do I deploy this?
+Find me on twitter [DangyWing](https://twitter.com/dangywing) if you have any questions!
 
-### Vercel
-
-We recommend deploying to [Vercel](https://vercel.com/?utm_source=t3-oss&utm_campaign=oss). It makes it super easy to deploy NextJs apps.
-
-- Push your code to a GitHub repository.
-- Go to [Vercel](https://vercel.com/?utm_source=t3-oss&utm_campaign=oss) and sign up with GitHub.
-- Create a Project and import the repository you pushed your code to.
-- Add your environment variables.
-- Click **Deploy**
-- Now whenever you push a change to your repository, Vercel will automatically redeploy your website!
-
-### Docker
-
-You can also dockerize this stack and deploy a container. See the [Docker deployment page](https://create-t3-app-nu.vercel.app/en/deployment/docker) for details.
-
-## Useful resources
-
-Here are some resources that we commonly refer to:
-
-- [Protecting routes with Next-Auth.js](https://next-auth.js.org/configuration/nextjs#unstable_getserversession)
+### Known issues & Todos:
+- If an NFT moved in and out of the wallet multiple times the entered wallet date may show as after the date left wallet. Review sql query to clean the data.
+- Persist data to reduce the load on API calls.
+- Display NFT images on the table and explorer.
+- Update the cylinders' heights based on mint price.
