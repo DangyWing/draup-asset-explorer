@@ -46,7 +46,8 @@ const usePointDisplay = ({ data, selectedPoint, targetDate }) => {
       ).toSeconds();
       const dataToTimestamp = DateTime.fromSQL(data[i].transfertotimestamp?.toString()).toSeconds();
       tempColor.set(
-        dataFromTimestamp > targetDate * 86400 && dataToTimestamp <= targetDate * 86400
+        (dataFromTimestamp > targetDate * 86400 || !dataFromTimestamp) &&
+          dataToTimestamp <= targetDate * 86400
           ? DEFAULT_COLOR
           : HIDE_COLOR
       );
@@ -85,7 +86,6 @@ const usePointColors = ({ data, selectedPoint }) => {
 };
 
 const useMousePointInteraction = ({ data, onSelectPoint }) => {
-  // track mousedown position to skip click handlers on drags
   const mouseDownRef = React.useRef([0, 0]);
   const handlePointerDown = (e) => {
     mouseDownRef.current[0] = e.clientX;

@@ -341,7 +341,7 @@ export default function TimelineTable(tableData: ExplorerData) {
   );
 }
 
-// A debounced input react component
+
 function DebouncedInput({
   value: initialValue,
   onChange,

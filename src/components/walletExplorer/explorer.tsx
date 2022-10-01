@@ -104,7 +104,7 @@ export default function App(tableData: ExplorerData) {
           <div className="flex w-full justify-evenly">
             <button
               onClick={() => setLayout("grid")}
-              className={`mx-1 rounded-lg bg-gray-800 p-1 uppercase text-sky-200 hover:bg-black hover:text-pink-200 ${
+              className={`mx-1 px-3 py-1 rounded-lg bg-gray-800 p-1 uppercase text-sky-200 hover:bg-black hover:text-pink-200 ${
                 layout === "grid" ? "bg-black font-bold text-pink-200" : ""
               }`}
             >
@@ -112,7 +112,7 @@ export default function App(tableData: ExplorerData) {
             </button>
             <button
               onClick={() => setLayout("spiral")}
-              className={`mx-1 rounded-lg bg-gray-800 p-1 uppercase text-sky-200 hover:bg-black hover:text-pink-200 ${
+              className={`mx-1 px-3 py-1 rounded-lg bg-gray-800 p-1 uppercase text-sky-200 hover:bg-black hover:text-pink-200 ${
                 layout === "spiral" ? "bg-black font-bold text-pink-200" : ""
               }`}
             >
@@ -120,8 +120,8 @@ export default function App(tableData: ExplorerData) {
             </button>
           </div>
 
-          <p>
-            view as of:{" "}
+          <p className="mt-2 text-center">
+            as of:{" "}
             {DateTime.fromSeconds(selectedDate * 86400)
               .setLocale(userLocale)
               .setZone(userTimezone)
@@ -135,12 +135,12 @@ export default function App(tableData: ExplorerData) {
             value={selectedDate}
             onChange={handleSliderChange}
             step="1"
-            className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-gray-200 accent-pink-200 dark:bg-gray-600"
+            className="my-2 h-2 w-full cursor-pointer appearance-none rounded-lg bg-gray-200 accent-pink-200 dark:bg-gray-600"
           />
-          <div className="flex justify-center">
+          <div className="my-1 flex justify-center">
             <button
               onClick={() => setShowExplore(false)}
-              className={`mx-1 rounded-lg bg-gray-900 p-1 uppercase text-sky-200 hover:bg-black hover:text-pink-200 `}
+              className={`mx-1 rounded-lg bg-gray-900 px-3 py-1 uppercase text-sky-200 hover:bg-black hover:text-pink-200 `}
             >
               Home
             </button>

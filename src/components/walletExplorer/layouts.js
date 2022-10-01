@@ -46,7 +46,6 @@ export const useLayout = ({ data, layout = "grid" }) => {
 };
 
 function useSourceTargetLayout({ data, layout }) {
-  // prep for new animation by storing source
   React.useEffect(() => {
     for (let i = 0; i < data.length; ++i) {
       data[i].sourceX = data[i].x || 0;
@@ -55,10 +54,8 @@ function useSourceTargetLayout({ data, layout }) {
     }
   }, [data, layout]);
 
-  // run layout
   useLayout({ data, layout });
 
-  // store target
   React.useEffect(() => {
     for (let i = 0; i < data.length; ++i) {
       data[i].targetX = data[i].x;
@@ -77,20 +74,15 @@ function interpolateSourceTarget(data, progress) {
 }
 
 export function useAnimatedLayout({ data, layout, onFrame }) {
-  // compute layout remembering initial position as source and
-  // end position as target
   useSourceTargetLayout({ data, layout });
 
-  // do the actual animation when layout changes
   const prevLayout = React.useRef(layout);
   const animProps = useSpring({
     animationProgress: 1,
     from: { animationProgress: 0 },
     reset: layout !== prevLayout.current,
     onFrame: ({ animationProgress }) => {
-      // interpolate based on progress
       interpolateSourceTarget(data, animationProgress);
-      // callback to indicate data has updated
       onFrame({ animationProgress });
     },
   });
