@@ -91,7 +91,7 @@ const Home: NextPage = () => {
             <link rel="icon" href="/favicon.ico" />
           </Head>
 
-          <div className=" mt-2 flex justify-end">
+          <div className=" mt-2 mr-2 flex justify-end">
             <ConnectKitButton showAvatar={true} />
           </div>
           <main className="container mx-auto flex min-h-screen flex-col  items-center p-4">
@@ -99,10 +99,7 @@ const Home: NextPage = () => {
               DRAUP <span className="text-pink-300">Asset</span> Explorer
             </h1>
             <div>
-              <label htmlFor="search" className="block text-sm font-medium text-gray-700">
-                alt address
-              </label>
-              <div className="relative mt-1 flex items-center">
+              <div className="relative m-1 flex items-center">
                 <input
                   type="text"
                   name="search"

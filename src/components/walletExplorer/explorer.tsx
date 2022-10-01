@@ -104,7 +104,7 @@ export default function App(tableData: ExplorerData) {
           <div className="flex w-full justify-evenly">
             <button
               onClick={() => setLayout("grid")}
-              className={`mx-1 px-3 py-1 rounded-lg bg-gray-800 p-1 uppercase text-sky-200 hover:bg-black hover:text-pink-200 ${
+              className={`mx-1 rounded-lg bg-gray-800 p-1 px-3 py-1 uppercase text-sky-200 hover:bg-black hover:text-pink-200 ${
                 layout === "grid" ? "bg-black font-bold text-pink-200" : ""
               }`}
             >
@@ -112,7 +112,7 @@ export default function App(tableData: ExplorerData) {
             </button>
             <button
               onClick={() => setLayout("spiral")}
-              className={`mx-1 px-3 py-1 rounded-lg bg-gray-800 p-1 uppercase text-sky-200 hover:bg-black hover:text-pink-200 ${
+              className={`mx-1 rounded-lg bg-gray-800 p-1 px-3 py-1 uppercase text-sky-200 hover:bg-black hover:text-pink-200 ${
                 layout === "spiral" ? "bg-black font-bold text-pink-200" : ""
               }`}
             >
@@ -169,7 +169,7 @@ export default function App(tableData: ExplorerData) {
                 mint tx fee (ETH):{" "}
                 <strong>{parseFloat(Number(selectedPoint.mint_tx_fee).toFixed(5))}</strong>
               </p>
-              <p>
+              <p className="text-zinc-100">
                 entered wallet:{" "}
                 <strong>
                   {DateTime.fromSQL(selectedPoint?.transfertotimestamp)
@@ -178,7 +178,7 @@ export default function App(tableData: ExplorerData) {
                     .toLocaleString()}
                 </strong>
               </p>
-              <p>
+              <p className="text-zinc-100">
                 left wallet:{" "}
                 {!selectedPoint.transferfromtimestamp ? (
                   <></>
